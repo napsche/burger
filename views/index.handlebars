@@ -1,13 +1,23 @@
 <h1>Eat-Da-Burger!!</h1>
 
-<h2>Are you hungry? What type of burger would you like??</h2>
+<h2>Available Burger Choices:</h2>
 
 <ul>
-    {{each burgers}}
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+    {{/each}}    
+</ul>
+
+<h2>Burgers that have been eaten already:</h2>
+
+<ul>
+    {{#each burgers}}
         {{#if devoured}}
             {{> burgers/burger-block devoured=false}}
         {{/if}}
-    {{/each}}    
+    {{/each}}
 </ul>
 
 <h2>What are you craving??</h2>
